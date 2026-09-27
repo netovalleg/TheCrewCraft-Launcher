@@ -149,17 +149,28 @@ input::-webkit-inner-spin-button {
 
 .popup-tab {
     width: 40%;
-    padding: 15px;
-    background: var(--background);
-    border-radius: 15px;
+    min-width: 380px;
+    padding: 24px 28px;
+    background: #161616;
+    border: 1px solid rgba(242, 183, 5, 0.25);
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
     z-index: 10;
 }
 
 .popup-title {
-    text-align: center;
-    font-size: 2rem;
-    border-bottom: solid 4px var(--color);
-    margin-bottom: 1rem;
+    text-align: left;
+    font-size: 1.3rem;
+    font-weight: 700;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 14px;
+}
+
+.popup-content {
+    font-weight: 400;
+    font-size: 0.95rem;
+    line-height: 1.5;
 }
 
 .popup-options {
@@ -169,14 +180,16 @@ input::-webkit-inner-spin-button {
 }
 
 .popup-button {
-    background: none;
-    color: var(--color);
-    border: solid 4px var(--element-color);
+    background: var(--element-color);
+    color: #141414;
+    border: none;
     border-radius: 10px;
-    padding: 0.3rem 4rem;
-    font-size: inherit;
-    font-weight: bold;
-    margin: 15px 10px;
+    padding: 0.55rem 2.5rem;
+    font-family: 'Poppins';
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin: 18px 0 0;
+    cursor: pointer;
 }
 
 .panel {
