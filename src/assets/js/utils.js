@@ -71,6 +71,8 @@ async function accountSelect(data) {
 
     if (activeAccount) activeAccount.classList.toggle('account-select');
     account.classList.add('account-select');
+    let playerName = document.querySelector('.player-name');
+    if (playerName && data?.name) playerName.textContent = data.name;
     if (data?.profile?.skins[0]?.base64) headplayer(data.profile.skins[0].base64);
 }
 
@@ -86,7 +88,7 @@ async function setStatus(opt) {
 
     if (!opt) {
         statusServerElement.classList.add('red')
-        statusServerElement.innerHTML = `Apagado - 0 ms`
+        statusServerElement.innerHTML = `Apagado`
         document.querySelector('.status-player-count').classList.add('red')
         playersOnline.innerHTML = '0'
         return
@@ -100,11 +102,11 @@ async function setStatus(opt) {
     if (!statusServer.error) {
         statusServerElement.classList.remove('red')
         document.querySelector('.status-player-count').classList.remove('red')
-        statusServerElement.innerHTML = `En línea - ${statusServer.ms ? statusServer.ms : 0} ms`
+        statusServerElement.innerHTML = `En línea · ${statusServer.ms ? statusServer.ms : 0} ms`
         playersOnline.innerHTML = statusServer.playersConnect ? statusServer.playersConnect : '0'
     } else {
         statusServerElement.classList.add('red')
-        statusServerElement.innerHTML = `Apagado - 0 ms`
+        statusServerElement.innerHTML = `Apagado`
         document.querySelector('.status-player-count').classList.add('red')
         playersOnline.innerHTML = '0'
     }
