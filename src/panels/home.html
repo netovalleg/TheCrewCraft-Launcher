@@ -1,47 +1,66 @@
 <div class="container">
-    <div class="status-server">
-        <img class="server-status-icon" src="assets/images/icon/icon.png">
-        <div class="server-status-infos">
-            <div class="server-status-name">Minecraft</div>
-            <div class="server-status-text">Conectando...</div>
+    <aside class="side-panel">
+        <div class="brand">
+            <img class="brand-logo" src="assets/images/icon/icon.png">
+            <div class="brand-text">
+                <div class="brand-name">The CrewCraft</div>
+                <div class="brand-tagline">Aventura · Exploración · Supervivencia</div>
+            </div>
         </div>
-        <div class="status-player-count">
-            <div class="player-count">0</div>
-        </div>
-    </div>
 
-    <div class="home-bottom">
-        <div class="new-tab">
-            <div class="titre-tab-new">Noticias</div>
-            <div class="news-list content-scroll"></div>
+        <div class="status-server">
+            <div class="server-status-infos">
+                <div class="server-status-name">The CrewCraft</div>
+                <div class="server-status-text">Conectando...</div>
+            </div>
+            <div class="status-player-count">
+                <div class="player-count">0</div>
+                <div class="player-label">en línea</div>
+            </div>
         </div>
-        <div class="social-tab">
-            <div class="social-list content-scroll">
-                <div data-url="https://github.com/netovalleg/TheCrewCraft-Launcher" class="social-block">
+
+        <div class="section-title">Noticias</div>
+        <div class="news-list content-scroll"></div>
+
+        <div class="side-footer">
+            <div class="player-options" title="Cuenta">
+                <div class="player-head"></div>
+                <div class="player-info">
+                    <div class="player-name">Jugador</div>
+                    <div class="player-sub">Cuenta de Microsoft</div>
+                </div>
+            </div>
+            <div class="social-list">
+                <div data-url="https://github.com/netovalleg/TheCrewCraft-Launcher" class="social-block" title="GitHub">
                     <div class="icon-github icon-social"></div>
                 </div>
             </div>
+            <div class="settings-btn icon-settings" title="Ajustes"></div>
         </div>
-    </div>
+    </aside>
 
-    <div class="sidebar">
-        <div class="player-options">
-            <div class="player-head"></div>
-        </div>
-
-        <div class="play-elements">
-            <div class="play-instance">
-                <button class="play-btn">Jugar</button>
-                <div class="instance-select icon-arrow"></div>
+    <main class="hero">
+        <div class="hero-content">
+            <div class="hero-kicker">Temporada 1</div>
+            <div class="hero-title">La aventura<br>te espera</div>
+            <div class="hero-meta">
+                <span>Minecraft 1.21.1</span><span class="dot"></span>
+                <span>NeoForge</span><span class="dot"></span>
+                <span>Mods incluidos</span>
             </div>
-            <div class="info-starting-game">
-                <div class="info-starting-game-text">Conectando...</div>
-                <progress value="0" max="0" class="progress-bar"></progress>
+
+            <div class="play-elements">
+                <div class="play-instance">
+                    <button class="play-btn">Jugar</button>
+                    <div class="instance-select icon-arrow"></div>
+                </div>
+                <div class="info-starting-game">
+                    <div class="info-starting-game-text">Conectando...</div>
+                    <progress value="0" max="0" class="progress-bar"></progress>
+                </div>
             </div>
         </div>
-
-        <div class="settings-btn icon-settings"></div>
-    </div>
+    </main>
 
     <div class="instance-popup">
         <div class="instances-tab">
