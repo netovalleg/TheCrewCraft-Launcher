@@ -30,7 +30,7 @@ class Home {
                     <div class="news-header">
                         <img class="server-status-icon" src="assets/images/icon/icon.png">
                         <div class="header-text">
-                            <div class="title">Todavía no hay noticias.</div>
+                            <div class="title">Todavía no hay noticias</div>
                         </div>
                         <div class="date">
                             <div class="day">${date.day}</div>
@@ -199,7 +199,7 @@ class Home {
         instanceCloseBTN.addEventListener('click', () => instancePopup.style.display = 'none')
     }
 
-    async startGame() {
+    async startGame(attempt = 1) {
         let launch = new Launch()
         let configClient = await this.db.readData('configClient')
         let instance = await config.getInstanceList()
@@ -214,7 +214,7 @@ class Home {
         let opt = {
             url: options.url,
             authenticator: authenticator,
-            timeout: 10000,
+            timeout: 30000,
             path: `${await appdata()}/${process.platform == 'darwin' ? this.config.dataDirectory : `.${this.config.dataDirectory}`}`,
             instance: options.name,
             version: options.loader.minecraft_version,
@@ -250,6 +250,7 @@ class Home {
             }
         }
 
+        let failed = false;
         launch.Launch(opt);
 
         playInstanceBTN.style.display = "none"
@@ -317,12 +318,27 @@ class Home {
         });
 
         launch.on('error', err => {
-            let popupError = new popup()
+            console.error(err);
+            if (failed) return;
+            failed = true;
 
+            if (attempt < 3) {
+                infoStarting.innerHTML = `Reintentando descarga (${attempt + 1}/3)...`
+                setTimeout(() => {
+                    this.startGame(attempt + 1);
+                }, 3000);
+                return;
+            }
+
+            let message = err?.error?.message || err?.error || err?.message || (typeof err === 'string' ? err : '');
+            if (typeof message !== 'string') message = JSON.stringify(message);
+            if (!message || message === 'undefined') message = 'No se pudieron descargar los archivos del juego.';
+
+            let popupError = new popup()
             popupError.openPopup({
-                title: 'Error',
-                content: err.error,
-                color: 'red',
+                title: 'No se pudo iniciar',
+                content: `${message}<br><br><span style="color:#aaa;font-size:0.85rem">Revisa tu conexión a internet e inténtalo de nuevo.</span>`,
+                color: '#FF5252',
                 options: true
             })
 
@@ -334,7 +350,6 @@ class Home {
             playInstanceBTN.style.display = "flex"
             infoStarting.innerHTML = `Verificando`
             new logger(pkg.name, '#7289da');
-            console.log(err);
         });
     }
 
