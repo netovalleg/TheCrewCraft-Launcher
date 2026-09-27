@@ -144,8 +144,8 @@ class Launcher {
                 if (account.meta.type === 'Xbox') {
                     console.log(`Account Type: ${account.meta.type} | Username: ${account.name}`);
                     popupRefresh.openPopup({
-                        title: 'Connexion',
-                        content: `Refresh account Type: ${account.meta.type} | Username: ${account.name}`,
+                        title: 'Iniciando sesión',
+                        content: `Actualizando cuenta: ${account.name}`,
                         color: 'var(--color)',
                         background: false
                     });
@@ -169,8 +169,8 @@ class Launcher {
                 } else if (account.meta.type == 'AZauth') {
                     console.log(`Account Type: ${account.meta.type} | Username: ${account.name}`);
                     popupRefresh.openPopup({
-                        title: 'Connexion',
-                        content: `Refresh account Type: ${account.meta.type} | Username: ${account.name}`,
+                        title: 'Iniciando sesión',
+                        content: `Actualizando cuenta: ${account.name}`,
                         color: 'var(--color)',
                         background: false
                     });
@@ -193,8 +193,8 @@ class Launcher {
                 } else if (account.meta.type == 'Mojang') {
                     console.log(`Account Type: ${account.meta.type} | Username: ${account.name}`);
                     popupRefresh.openPopup({
-                        title: 'Connexion',
-                        content: `Refresh account Type: ${account.meta.type} | Username: ${account.name}`,
+                        title: 'Iniciando sesión',
+                        content: `Actualizando cuenta: ${account.name}`,
                         color: 'var(--color)',
                         background: false
                     });
